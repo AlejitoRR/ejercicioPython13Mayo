@@ -27,7 +27,11 @@ def weather_dashboard():
 def render_results():
     cityname = request.form['city']
 
-    api = 
+    api = get_api_key();
+
+
+def get_api_key():
+    #esta funcion obtiene el valor del api key que se va a utilizar    
 
 #Esta condicion siempre va en los proyectos de python 
 #e indica que por defecto el metodo principal es el main 
