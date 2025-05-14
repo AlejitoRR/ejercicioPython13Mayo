@@ -27,7 +27,24 @@ def weather_dashboard():
 def render_results():
     cityname = request.form['city']
 
+    #ESTA VARIABLE ESTA ALMACENANDO EL VALOR DEL API KEY
+    #que se encuentra en el archivo config.ini
     api = get_api_key();
+
+    #vamos a conectarnos al api y a consumirlo
+    data = get_weather_results(cityname, api)
+
+
+#aqui ya consumimos el servicio web 
+
+def get_weather_results(cityname, api_key):
+    url =' https://api.openweathermap.org/data/2.5/weather?q={}&appid={}'.format(cityname, api_key)
+
+    r = requests.get(url)
+    return r.json()
+
+
+
 
 
 def get_api_key():
@@ -37,7 +54,7 @@ def get_api_key():
     #se lee el archivo que guarda la api key del servicio web    
     config = configparser.ConfigParser()
     config.read('config.ini')
-    return config ['openweathermap']['api']
+    return config ['openweathermap']['api'] 
 
 #Esta condicion siempre va en los proyectos de python 
 #e indica que por defecto el metodo principal es el main 
