@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <title>Aplicacion estado del tiempo</title>
+    <main>
+        <div>
+            <h2>weather flask app</h2>
+        </div>
+        <div class="inputcity">
+            <h3>Ingresa el nombre de tu ciudad</h3>
+        </div>
+        <form action="{{url_for('render_results')}}" method="POST">
+            <input type="text" id="city" name="city" placeholder="Nombre de la ciudad">
+            <button type="submit" id="weatherSubmit" value="submit">Enviar</button>
+        </form>
+    </main>
+</body>
+</html>
