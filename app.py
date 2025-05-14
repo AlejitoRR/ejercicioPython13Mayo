@@ -22,7 +22,12 @@ app = Flask(__name__)
 def weather_dashboard():
     return render_template('home.html')
 
+#ruta que pinta los resultados
+@app.route('/results')
+def render_results():
+    cityname = request.form['city']
 
+    api = 
 
 #Esta condicion siempre va en los proyectos de python 
 #e indica que por defecto el metodo principal es el main 
