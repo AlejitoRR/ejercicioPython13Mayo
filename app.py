@@ -23,7 +23,7 @@ def weather_dashboard():
     return render_template('home.html')
 
 #ruta que pinta los resultados
-@app.route('/results')
+@app.route('/results', methods=['POST'])
 def render_results():
     cityname = request.form['city']
 
@@ -36,7 +36,16 @@ def render_results():
 
     #se toma la temperatura del json   
     temp = "{0:.2f}".format(data['main']['temp'])
+ 
+    #se toma la humedad del json
+    feels_like = "{0:.2f}".format(data['main']['feels_like']) #se pone format porque es un numero decimal
 
+    #se toma la condicion de la temperatura del json
+    weather = data['weather'][0]['main']
+
+    location = data['name']
+
+    return render_template('results.html', location=location,temp=temp, feels_like=feels_like, weather=weather, location=location)
 
 #aqui ya consumimos el servicio web 
 
