@@ -31,7 +31,13 @@ def render_results():
 
 
 def get_api_key():
-    #esta funcion obtiene el valor del api key que se va a utilizar    
+    #esta funcion obtiene el valor del api key que se va a utilizar
+
+
+    #se lee el archivo que guarda la api key del servicio web    
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    return config ['openweathermap']['api']
 
 #Esta condicion siempre va en los proyectos de python 
 #e indica que por defecto el metodo principal es el main 
