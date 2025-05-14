@@ -34,6 +34,9 @@ def render_results():
     #vamos a conectarnos al api y a consumirlo
     data = get_weather_results(cityname, api)
 
+    #se toma la temperatura del json   
+    temp = "{0:.2f}".format(data['main']['temp'])
+
 
 #aqui ya consumimos el servicio web 
 
